@@ -34,6 +34,7 @@ jobs :
          username: ${{secrets.EC2_USERNAME}}
          key : ${{secrets.EC2_SSH_KEY}}
          script : |
+           sudo su
            docker pull ${{secrets.DOCKER_USERNAME}}/cicd:latest
            docker stop cicd-container || true
            docker rm cicd-container || true
